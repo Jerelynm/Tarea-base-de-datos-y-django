@@ -177,3 +177,13 @@ def calificacion_delete(request, pk):
         item.delete()
         return redirect('calificaciones')
     return render(request, 'calificaciones/delete.html', {'item': item, 'titulo': 'Eliminar calificación'})
+
+# ---------------- REPORTES ----------------
+def reporte_inscripciones(request):
+    datos = InscripcionAlumno.objects.select_related('alumno', 'curso').all()
+    return render(request, 'reportes/reporte_inscripciones.html', {'datos': datos})
+
+
+def reporte_asignaciones(request):
+    datos = AsignacionCurso.objects.select_related('curso', 'catedratico').all()
+    return render(request, 'reportes/reporte_asignaciones.html', {'datos': datos})

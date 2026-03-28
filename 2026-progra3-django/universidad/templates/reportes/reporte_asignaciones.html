@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Reporte de Asignaciones{% endblock %}
+{% block page_title %}Reporte de Asignaciones{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h4 class="mb-3">Asignaciones de cursos</h4>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Curso</th>
+                        <th>Código</th>
+                        <th>Catedrático</th>
+                        <th>Profesión</th>
+                        <th>Correo</th>
+                        <th>Sección</th>
+                        <th>Ciclo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in datos %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ item.curso.nombre }}</td>
+                        <td>{{ item.curso.codigo }}</td>
+                        <td>{{ item.catedratico.nombre }} {{ item.catedratico.apellido }}</td>
+                        <td>{{ item.catedratico.profesion }}</td>
+                        <td>{{ item.catedratico.correo }}</td>
+                        <td>{{ item.seccion }}</td>
+                        <td>{{ item.ciclo }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8">No hay registros disponibles.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

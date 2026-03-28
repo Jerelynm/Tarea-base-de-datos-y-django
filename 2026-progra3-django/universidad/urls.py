@@ -32,5 +32,8 @@ urlpatterns = [
     path('calificaciones/nuevo/', views.calificacion_create, name='calificacion_create'),
     path('calificaciones/editar/<int:pk>/', views.calificacion_update, name='calificacion_update'),
     path('calificaciones/eliminar/<int:pk>/', views.calificacion_delete, name='calificacion_delete'),
+
+path('reportes/inscripciones/', views.reporte_inscripciones, name='reporte_inscripciones'),
+path('reportes/asignaciones/', views.reporte_asignaciones, name='reporte_asignaciones'),
 ]
 
