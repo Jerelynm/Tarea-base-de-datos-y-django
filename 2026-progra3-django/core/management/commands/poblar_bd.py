@@ -105,7 +105,7 @@ class Command(BaseCommand):
 
         # 4. Asignaciones: 300
         secciones = ["A", "B", "C", "D"]
-        ciclos = ["Primer Semestre 2026", "Segundo Semestre 2026"]
+        ciclos = ["Semestre 1-2026", "Semestre 2-2026"]
         asignaciones = []
         for _ in range(300):
             asignaciones.append(

@@ -181,6 +181,8 @@
         <i class="bi bi-people-fill"></i> Alumnos
     </a>
 
+
+
     <!-- Módulos futuros -->
    <a href="{% url 'cursos' %}"
    class="nav-link {% if request.resolver_match.url_name == 'cursos' %}active{% endif %}">
@@ -205,6 +207,17 @@
    class="nav-link {% if request.resolver_match.url_name == 'inscripcion_alumno' %}active{% endif %}">
     <i class="bi bi-card-checklist"></i> Inscripción Alumno
 </a>
+
+<a href="{% url 'reporte_inscripciones' %}" class="nav-link">
+    <i class="bi bi-file-earmark-bar-graph"></i>
+    <span>Reporte Inscripciones</span>
+</a>
+
+<a href="{% url 'reporte_asignaciones' %}" class="nav-link">
+    <i class="bi bi-bar-chart-line"></i>
+    <span>Reporte Asignaciones</span>
+</a>
+
     <div class="nav-section">Sistema</div>
     <a href="#" class="nav-link">
         <i class="bi bi-gear-fill"></i> Configuración
