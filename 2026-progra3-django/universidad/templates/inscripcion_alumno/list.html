@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid py-4">
+    <h1 class="mb-4">Inscripción de Alumno</h1>
+
+    <a class="btn btn-primary mb-3" href="{% url 'inscripcion_create' %}">
+        <i class="bi bi-plus-circle"></i> Nueva inscripción
+    </a>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Alumno</th>
+                        <th>Curso</th>
+                        <th>Fecha de inscripción</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in datos %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.alumno }}</td>
+                        <td>{{ item.curso }}</td>
+                        <td>{{ item.fecha_inscripcion }}</td>
+                        <td>{{ item.estado }}</td>
+                        <td>
+                            <a class="btn btn-warning btn-sm" href="{% url 'inscripcion_update' item.id %}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'inscripcion_delete' item.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6">No hay inscripciones registradas.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

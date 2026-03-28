@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid py-4">
+    <h1 class="mb-4">Calificaciones</h1>
+
+    <a class="btn btn-primary mb-3" href="{% url 'calificacion_create' %}">
+        <i class="bi bi-plus-circle"></i> Nueva calificación
+    </a>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Inscripción</th>
+                        <th>Unidad</th>
+                        <th>Nota</th>
+                        <th>Observación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in datos %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.inscripcion }}</td>
+                        <td>{{ item.unidad }}</td>
+                        <td>{{ item.nota }}</td>
+                        <td>{{ item.observacion }}</td>
+                        <td>
+                            <a class="btn btn-warning btn-sm" href="{% url 'calificacion_update' item.id %}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'calificacion_delete' item.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6">No hay calificaciones registradas.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

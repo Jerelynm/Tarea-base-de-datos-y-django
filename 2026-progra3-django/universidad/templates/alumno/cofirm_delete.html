@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid py-4">
+    <h1 class="mb-4">Eliminar Alumno</h1>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p>
+                ¿Seguro que deseas eliminar al alumno
+                <strong>{{ alumno.first_name }} {{ alumno.last_name }}</strong>?
+            </p>
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn btn-danger" type="submit">Sí, eliminar</button>
+                <a class="btn btn-secondary" href="{% url 'alumno:list' %}">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

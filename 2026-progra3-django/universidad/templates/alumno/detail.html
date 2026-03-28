@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid py-4">
+    <h1 class="mb-4">Detalle del Alumno</h1>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p><strong>ID:</strong> {{ alumno.id }}</p>
+            <p><strong>Nombres:</strong> {{ alumno.first_name }}</p>
+            <p><strong>Apellidos:</strong> {{ alumno.last_name }}</p>
+            <p><strong>Email:</strong> {{ alumno.email }}</p>
+            <p><strong>Teléfono:</strong> {{ alumno.phone }}</p>
+            <p><strong>Género:</strong> {{ alumno.get_gender_display }}</p>
+            <p><strong>Fecha de nacimiento:</strong> {{ alumno.birth_date }}</p>
+            <p>
+                <strong>Activo:</strong>
+                {% if alumno.is_active %}
+                    Sí
+                {% else %}
+                    No
+                {% endif %}
+            </p>
+
+            <a class="btn btn-warning" href="{% url 'alumno:update' alumno.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'alumno:delete' alumno.id %}">Eliminar</a>
+            <a class="btn btn-secondary" href="{% url 'alumno:list' %}">Volver</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

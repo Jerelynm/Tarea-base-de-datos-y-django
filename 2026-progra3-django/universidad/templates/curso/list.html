@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid py-4">
+    <h1 class="mb-4">Cursos</h1>
+
+    <a class="btn btn-primary mb-3" href="{% url 'curso_create' %}">
+        <i class="bi bi-plus-circle"></i> Nuevo curso
+    </a>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Código</th>
+                        <th>Créditos</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in datos %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.nombre }}</td>
+                        <td>{{ item.codigo }}</td>
+                        <td>{{ item.creditos }}</td>
+                        <td>
+                            <a class="btn btn-warning btn-sm" href="{% url 'curso_update' item.id %}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'curso_delete' item.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">No hay cursos registrados.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

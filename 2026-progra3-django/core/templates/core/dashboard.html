@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <h1 class="mb-4">Dashboard</h1>
+
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Total alumnos</h5>
+                    <p class="fs-4">{{ total_alumnos }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Alumnos activos</h5>
+                    <p class="fs-4">{{ activos }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Alumnos inactivos</h5>
+                    <p class="fs-4">{{ inactivos }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Total cursos</h5>
+                    <p class="fs-4">{{ total_cursos }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Total catedráticos</h5>
+                    <p class="fs-4">{{ total_catedraticos }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Total asignaciones</h5>
+                    <p class="fs-4">{{ total_asignaciones }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Total inscripciones</h5>
+                    <p class="fs-4">{{ total_inscripciones }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Total calificaciones</h5>
+                    <p class="fs-4">{{ total_calificaciones }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
